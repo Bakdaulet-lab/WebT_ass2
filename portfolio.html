@@ -85,6 +85,12 @@
 </head>
 
 <body>
+
+
+  <script src="index.js"></script>
+
+
+
   <!-- Header -->
   <header class="container-fluid p-5 text-center">
     <h1 class="display-4 color:#f8f9fa">Welcome to My Personal Webpage</h1>
@@ -111,6 +117,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item"></li>
+            <a class="nav-link active" target="_blank" href="index.html">Game of Thrones</a>
           </li>
         </ul>
       </div>
@@ -175,6 +184,233 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+
+
+  <div id="content1">
+    <h1 id="heading1">Welcome to My Website!</h1>
+    <img id="image1" src="Media/photo_2024-09-12_02-51-51.jpg" alt="Image" width="300">
+    <button id="actionBtn1">Click Me!</button>
+</div>
+
+
+<!-- To-Do List Section -->
+<section id="todo" class="container mt-5">
+  <h2 class="text-center">Interactive To-Do List</h2>
+
+  <!-- To-Do List Input -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" id="taskInput" class="form-control" placeholder="Enter your task here">
+        <button class="btn btn-success" type="button" onclick="addTask()">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- To-Do List Display -->
+  <ul id="taskList" class="list-group"></ul>
+</section>
+
+<!-- JavaScript for To-Do List Functionality -->
+<script>
+  // Add a new task to the list
+  function addTask() {
+    const taskInput = document.getElementById('taskInput');
+    const taskText = taskInput.value.trim();
+
+    if (taskText === "") {
+      alert("You must type something!");  // Input validation for empty task
+      return;
+    }
+
+    // Create a new list item for the task
+    const taskItem = document.createElement('li');
+    taskItem.className = 'list-group-item d-flex justify-content-between align-items-center';
+
+    // Create the task text node
+    const taskContent = document.createElement('span');
+    taskContent.textContent = taskText;
+    
+    // Create a "Complete" button to mark tasks as done
+    const completeBtn = document.createElement('button');
+    completeBtn.textContent = 'Complete';
+    completeBtn.className = 'btn btn-outline-primary btn-sm mx-2';
+    completeBtn.onclick = function() {
+      taskContent.style.textDecoration = 'line-through';
+    };
+
+    // Create a "Delete" button to remove the task
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.className = 'btn btn-outline-danger btn-sm';
+    deleteBtn.onclick = function() {
+      taskItem.remove();
+    };
+
+    // Append task content and buttons to the list item
+    taskItem.appendChild(taskContent);
+    taskItem.appendChild(completeBtn);
+    taskItem.appendChild(deleteBtn);
+
+    // Append the new task to the task list
+    document.getElementById('taskList').appendChild(taskItem);
+
+    // Clear the input field after adding the task
+    taskInput.value = "";
+  }
+</script>
+
+
+
+
+
+
+
+
+<!-- Number Sorting Tool Section -->
+<section id="sortingTool" class="container mt-5">
+  <h2 class="text-center">Number Sorting Tool</h2>
+  
+  <!-- Sorting Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <div class="mb-3">
+          <label for="numberInput" class="form-label">Enter numbers separated by commas (e.g., 1, 5, 3, 9):</label>
+          <input type="text" id="numberInput" class="form-control" placeholder="Enter numbers">
+        </div>
+        <div class="mb-3">
+          <label for="sortOrder" class="form-label">Choose sorting order:</label>
+          <select id="sortOrder" class="form-select">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="sortNumbers()">Sort Numbers</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Display Sorted Result -->
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <div id="result" class="alert alert-info" role="alert">
+        Sorted numbers will appear here.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Sorting Tool -->
+<script>
+  function sortNumbers() {
+    // Get user input
+    const numberInput = document.getElementById('numberInput').value;
+    const sortOrder = document.getElementById('sortOrder').value;
+
+    // Validate input: check if the input is not empty
+    if (numberInput.trim() === "") {
+      alert("Please enter some numbers.");
+      return;
+    }
+
+    // Split the input into an array and validate numbers
+    let numbersArray = numberInput.split(',').map(num => num.trim());
+    if (numbersArray.some(isNaN)) {
+      alert("Please make sure to enter only numbers separated by commas.");
+      return;
+    }
+
+    // Convert the strings to numbers
+    numbersArray = numbersArray.map(Number);
+
+    // Sort the array based on user selection (ascending or descending)
+    if (sortOrder === "asc") {
+      numbersArray.sort((a, b) => a - b);
+    } else {
+      numbersArray.sort((a, b) => b - a);
+    }
+
+    // Display the sorted result
+    document.getElementById('result').textContent = "Sorted Numbers: " + numbersArray.join(', ');
+  }
+</script>
+
+
+
+
+
+
+
+<!-- Tax Calculator Section -->
+<section id="taxCalculator" class="container mt-5">
+  <h2 class="text-center">Car Purchase Tax Calculator</h2>
+
+  <!-- Tax Calculator Form -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <div class="mb-3">
+          <label for="carPrice" class="form-label">Enter the price of the car:</label>
+          <input type="number" id="carPrice" class="form-control" placeholder="Enter price in USD">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateTax()">Calculate Tax</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Display Tax Result -->
+  <div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+      <div id="taxResult" class="alert alert-info" role="alert">
+        Your tax will be displayed here.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript for Tax Calculator -->
+<script>
+  function calculateTax() {
+    // Get the car price from the input field
+    const carPrice = parseFloat(document.getElementById('carPrice').value);
+
+    // Validate the input: check if the input is not empty and a valid number
+    if (isNaN(carPrice) || carPrice <= 0) {
+      alert("Please enter a valid price for the car.");
+      return;
+    }
+
+    let taxRate = 0;
+
+    // Determine the tax rate based on the car price
+    if (carPrice > 10000) {
+      taxRate = 0.25; // 25% tax
+    } else if (carPrice >= 5000 && carPrice <= 10000) {
+      taxRate = 0.20; // 20% tax
+    } else {
+      taxRate = 0.15; // 15% tax
+    }
+
+    // Calculate the tax
+    const taxAmount = carPrice * taxRate;
+
+    // Display the tax result
+    document.getElementById('taxResult').textContent = "Tax Amount: $" + taxAmount.toFixed(2);
+  }
+</script>
+
+
+
+
+
+
+
 
   <!-- Footer -->
   <footer class="container-fluid p-4 bg-dark text-light text-center">
