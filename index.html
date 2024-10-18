@@ -47,7 +47,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="portfolio.html" target="_blank">Home</a>
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#characters">Characters</a>
@@ -57,6 +57,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#facts">Facts</a>
+          </li>
+          <li class="nav-item"></li>
+            <a class="nav-link active" target="_blank" aria-current="page" href="portfolio.html">Portfolio</a>
           </li>
         </ul>
       </div>
@@ -142,6 +145,37 @@
     </div>
   </section>
 
+
+
+   <!-- favorite character -->
+   <h2 class="text-center">Choose your favorite character</h2>
+   <div class="list-group">
+      <label class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios1" value="" checked="">
+        <span>
+          Jon Snow
+          <small class="d-block text-body-secondary">The King in the North</small>
+        </span>
+      </label>
+      <label class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios2" value="">
+        <span>
+          Dany Targaryen
+          <small class="d-block text-body-secondary">Mother of Dragons</small>
+        </span>
+      </label>
+      <label class="list-group-item d-flex gap-2">
+        <input class="form-check-input flex-shrink-0" type="radio" name="listGroupRadios" id="listGroupRadios3" value="">
+        <span>
+          Tyrion Lannister
+          <small class="d-block text-body-secondary">Lannisters always pay</small>
+        </span>
+      </label>
+    </div>
+  </div>
+
+
+
   <!-- Seasons Section -->
   <section id="seasons" class="container mt-5">
     <h2 class="text-center mb-4">Seasons Overview</h2>
@@ -156,6 +190,58 @@
       </div>
     </div>
   </section>
+
+
+
+
+
+  <!-- Fun Facts Accordion -->
+  <section id="facts" class="container mt-5">
+    <h2 class="text-center mb-4">Fun Facts about Game of Thrones</h2>
+    <div class="accordion" id="accordionFacts">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Fact 1: The Iron Throne is uncomfortable for a reason
+          </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionFacts">
+          <div class="accordion-body">
+            George R.R. Martin wanted the Iron Throne to be a symbol of discomfort and danger, reflecting the ruler's precarious position.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Fact 2: Direwolves are based on real extinct animals
+          </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFacts">
+          <div class="accordion-body">
+            The direwolves in the series are based on a real species of large wolf that lived during the Ice Age.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            Fact 3: Each episode cost millions to produce
+          </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionFacts">
+          <div class="accordion-body">
+            Game of Thrones became one of the most expensive shows ever made, with the final season costing around $15 million per episode.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
 
   <!-- Footer -->
   <footer class="container-fluid bg-dark text-light py-3">
@@ -182,6 +268,7 @@
       document.getElementById('season8').textContent = "Season 8: The Long Night";
     }
   </script>
+  
 </body>
 
 </html>
